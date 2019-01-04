@@ -1,0 +1,14 @@
+Questions:
+What is the Barabasi model and why is it important?
+Research DAG (Directed acyclic graphs (for DFS))
+
+
+Notes:
+BFS is important in web crawling.
+
+DFS takes same time whether recursive or iterative.  Java will use stack for both.
+
+DFS = stack (mehr memory friendly)
+BFS = queue
+
+toString method can always be overridden
