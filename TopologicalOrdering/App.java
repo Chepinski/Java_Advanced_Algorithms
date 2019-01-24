@@ -48,11 +48,11 @@ public class App {
 /**
  * the graph created/directed acyclic graph
  * 
- * 1<--3<--2<--5
+ * b<--d<--c<--f
  * ^           |
  * |           v
- * 4---------->0
+ * e---------->a
  *
  *
- *topological order = 5-4-2-3-1-0
+ *topological order = f-e-c-d-b-a
  **/
