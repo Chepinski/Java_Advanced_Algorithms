@@ -12,3 +12,20 @@ DFS = stack (mehr memory friendly)
 BFS = queue
 
 toString method can always be overridden
+
+DAG directed acyclic graph..a graph with no directed cycles
+topological sort has linear time complexity
+
+Hamiltonian path?
+
+topological order
+	find edge with no incoming edges
+	then find next edge with no incoming edges
+		(edges already counted do not count as an incoming edge)
+	repeat until done
+	
+	gives us the steps in order we have to take to complete a task.
+	no task can be completed until the previous steps (incoming edges) are completed
+		-dependency management (Maven)
+		-syllabus für Uni
+		
