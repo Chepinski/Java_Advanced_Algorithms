@@ -18,7 +18,18 @@ public class DFS {//LIFO structure
 			//not needed if we are traversing just one cluster
 			if( !v.isVisited() ) {
 				v.setVisited(true);
-				dfsWithStack(v);
+				dfsRecursive(v);
+			}
+		}
+	}
+	
+	private void dfsRecursive (Vertex v) {
+		System.out.print(v+" ");
+		
+		for(Vertex vertex : v.getAdjacenciesList()) {
+			if( !vertex.isVisited() ) {
+				vertex.setVisited(true);
+				dfsRecursive(vertex);
 			}
 		}
 	}
