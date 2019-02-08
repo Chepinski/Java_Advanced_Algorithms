@@ -30,3 +30,27 @@ topological order
 		-syllabus für Uni
 		
 Cycle = we are visiting again a vertex that is being visited
+
+O(N) items (leaf nodes) in queue, if graph has N - BFS (good for artificial intelligence/robot movements
+	because it searches through the entire local area.
+O(logN) items, so more memory friendly and preferred - DFS
+
+Shortest Path algorithms
+finding a shortest path between two vertices in a graph
+	-Dijkstra
+		Edsger Dijkstra 1956
+		positive edge weights only
+		asymptotically fastest single-source shortest-path algorithm
+		if source changes, needs recalculation
+		O(V*log(V)+E) V=verteces E=edges
+		greedy algorithm/tries to find min distance between all verteces
+		
+		Adjacency matrixes help Dijkstra
+	-Bellman Ford
+		Bellman and Ford (independently) 1958
+		slower but can handle negative edge weights as well
+		V-1 iterations running O(V*E)
+		V-1 +1 to detect cycles
+		no negative cycles IRL but sometimes problems (forex, stock market)
+			are given negative edges
+		
