@@ -53,4 +53,16 @@ finding a shortest path between two vertices in a graph
 		V-1 +1 to detect cycles
 		no negative cycles IRL but sometimes problems (forex, stock market)
 			are given negative edges
+			
+DAG (directed acyclic[no cyles] graph) shortest path algorithm
+	-topological sorting DFS O(E+V), much faster than Dijkstra & Bellman-Ford
+	-solving Knapsack-problem application, GPS, vehicles routing, navigation
+	-RIP (Routing Information Protocol)??  WWW wants to send packets on the shortest path possible
+	
+	Avidan-Shamir method
+		-shrink an image e.g. on a browser without distortion
+		-Photoshop/GIMP
+			vertices are pixels and edges point to downward 3 neighbors
+			
+	
 		
