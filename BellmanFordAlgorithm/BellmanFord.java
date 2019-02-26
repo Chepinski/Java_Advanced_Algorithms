@@ -14,8 +14,8 @@ public class BellmanFord {
 		this.vertexList = vertexList;
 	}
 
-	public void bellmanFord(Vertex sourceVertex) {// v-1 iterations --> we relax all the edges
-
+	public void bellmanFord(Vertex sourceVertex) {// v-1 iterations --> we relax all the edges (find shorter path to reach v from u)
+		//initiall all vertex distances are set to MAX_VALUE except the source vertex
 		sourceVertex.setDistance(0);
 		for (int i = 0; i < vertexList.size() - 1; ++i) {
 			for (Edge edge : edgeList) {
@@ -46,7 +46,19 @@ public class BellmanFord {
 	}
 
 	private boolean hasCycle(Edge edge) {
+		
 		return edge.getStartVertex().getDistance() + edge.getWeight() < edge.getTargetVertex().getDistance();
+		/**
+		 * if the startVertex distance + outgoing edgeweight is less than the target vertex's distance
+		 * then there is a cycle (negative weight going to target vertex)
+		 * 
+		 * 				a
+		 * 			-10/_\2
+		 * 			  c	3 b
+		 * 
+		 * here c->a is negative so a-b-c is a 'negative cycle'(weighted directed graph where total
+		 * weight is negative (2+3-10 = -5)
+		 */
 	}
 
 	public void shortestPathTo(Vertex targetVertex) {
