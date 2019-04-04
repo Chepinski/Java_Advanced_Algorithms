@@ -14,6 +14,7 @@ public class AcyclicShortestPath {
 		topologicalSort.makeTopologicalOrder(vertexList);
 
 		Stack<Vertex> stack = topologicalSort.getTopologicalOrder();
+		System.out.println("stack: "+stack.toString());
 
 		for (Vertex actualVertex : stack) {
 

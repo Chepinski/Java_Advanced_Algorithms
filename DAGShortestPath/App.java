@@ -32,7 +32,7 @@ public class App {
 		
 		AcyclicShortestPath acyclicShortestPath = new AcyclicShortestPath();
 		acyclicShortestPath.shortestPath(vertexList, vertex0, vertex2);
-		//Lieber Gott warum hab i es so gennant?
+		//Lieber Gott warum hab ich es so gennant?
 		acyclicShortestPath.showShortestPathTo(vertex2);
 
 	}

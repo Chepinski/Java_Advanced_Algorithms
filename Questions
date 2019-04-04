@@ -63,6 +63,30 @@ DAG (directed acyclic[no cyles] graph) shortest path algorithm
 		-shrink an image e.g. on a browser without distortion
 		-Photoshop/GIMP
 			vertices are pixels and edges point to downward 3 neighbors
-			
-	
-		
+
+Disjoint sets (union-find)
+	3 operations: union, find, makeSet
+	O(1) is vertex in the same set?
+	makeSet
+		function makeSet(x)
+			x.parent = x //item is set as own parent
+	find
+		function find(x)
+			if x.parent == x
+				return x
+			else 
+				return find(x.parent)  //if x.parent = itself is root node
+	union
+		function union(x,y)
+			xRoot= find(x)
+			yRoot = find(y)
+			x.Root.parent = yRoot
+			//Problem: tree like structures like binary search can become unbalanced
+	used in Kruskal-algorithm
+	can check for cycle in asymptotically O(1)
+
+Kruskal-algorithm
+	-sort the edges according to edge weights
+	-can be done in O(N*logN) with mergesort or quicksort
+		worst-case running time O(E*logE)
+	-union find data structure/"disjoint set"

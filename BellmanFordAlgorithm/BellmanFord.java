@@ -15,7 +15,7 @@ public class BellmanFord {
 	}
 
 	public void bellmanFord(Vertex sourceVertex) {// v-1 iterations --> we relax all the edges (find shorter path to reach v from u)
-		//initiall all vertex distances are set to MAX_VALUE except the source vertex
+		//initially all vertex distances are set to MAX_VALUE except the source vertex
 		sourceVertex.setDistance(0);
 		for (int i = 0; i < vertexList.size() - 1; ++i) {
 			for (Edge edge : edgeList) {
