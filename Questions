@@ -90,3 +90,10 @@ Kruskal-algorithm
 	-can be done in O(N*logN) with mergesort or quicksort
 		worst-case running time O(E*logE)
 	-union find data structure/"disjoint set"
+Prims algorithm
+	-vertex (as opposed to Kruskal)
+	-two types: lazy and eager
+	-heap used
+	-faster in the limit when graph is dense (more edges than vertices)
+	-Kruskal better in typical situations and uses simpler data structures
+	
