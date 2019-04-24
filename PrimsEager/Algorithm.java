@@ -36,26 +36,26 @@ public class Algorithm {
 		
 		vertex.setVisited(true);
 		
-		for(Edge edge : vertex.getAdjacencies()) {
+		for(Edge edge : vertex.getAdjacencies()) {//visit all vertexes connected to this vertex
 			Vertex v = edge.getTargetVertex();
 			
 			if(v.isVisited()) {
 				continue;
 			}
 			
-			if(edge.getWeight() < v.getDistance()) {
-				v.setDistance(edge.getWeight());
-				v.setMinEdge(edge);
+			if(edge.getWeight() < v.getDistance()) {//if this edgeweight is less than the previous edgeweight given for target vertex
+				v.setDistance(edge.getWeight());//set new distance to current edgeweight
+				v.setMinEdge(edge);//set the minimum edge for the vertex to new distance
 				
-				if(this.heap.contains(v)) {
+				if(this.heap.contains(v)) {//if the heap already contained this edge, delete it
 					this.heap.remove(v);
 				}
-				this.heap.add(v);
+				this.heap.add(v);//add new edge to heap
 			}
 		}
 	}
 	
-	public void showMST() {
+	public void showMST() {//print out solution to min spanning tree (non-eager version)
 		for(Vertex vertex : vertexList) {
 			if(vertex.getMinEdge() != null) {
 				Edge e = vertex.getMinEdge();

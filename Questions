@@ -96,4 +96,30 @@ Prims algorithm
 	-heap used
 	-faster in the limit when graph is dense (more edges than vertices)
 	-Kruskal better in typical situations and uses simpler data structures
+	-good for things like connecting N cities at the lowest cost
+		cities are vertexes and roads are vertexes
+	-k-means clustering
+		classify similar items
+		machine learning
+		dots closer to each other than any other dots in same cluster
+	-routing in LAN
+		(STP) spanning tree protocol/loop-free topology
+
+Strongly connected graph
+	-strongly connected if can get from any vertex to another (e.g. undirected graph)
+	-directed graphs CANNOT be reached from any vertex
+		may be connected but not strongly connected
+	-we can find this in O(v)
+	-we can shrink strongly graph into 1 vertex
+	Kosaraju algorithm
+		-uses 2 DFS's
+		-transpose the graph (reverse the edges)
+	Tarjan algorithm
+		-uses 1 DFS
+		-more popular
+		*both algorithms useful for:
+			-ecology: determining hierarchy of food needs
+			-software engineering: package large software using strongly connected classes
+			-astrophysics: detect faint stars by clustering them
+			-youtube: recommend based on connected components/clusters	
 	
