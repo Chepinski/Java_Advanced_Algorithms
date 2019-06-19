@@ -27,7 +27,7 @@ topological order
 	gives us the steps in order we have to take to complete a task.
 	no task can be completed until the previous steps (incoming edges) are completed
 		-dependency management (Maven)
-		-syllabus f�r Uni
+		-syllabus für Uni
 		
 Cycle = we are visiting again a vertex that is being visited
 
@@ -122,4 +122,49 @@ Strongly connected graph
 			-software engineering: package large software using strongly connected classes
 			-astrophysics: detect faint stars by clustering them
 			-youtube: recommend based on connected components/clusters	
-	
+Maximum Flow
+	-Flow network: G(V,E) given a graph with vertices, connected edges and a flow network (source and sink)
+	-s: source -> flow coming from source
+	-t:sink ->flow heading for the sink
+	-we assign a capacity to every edge (max flow to that edge/upper bound)
+	-we assign a flow value to every edge (actual flow e.g gallons per second)
+	-FIND THE FLOW WITH MAX VALUE FROM SOURCE TO SINK
+	-capacity constraint: for all u,v vertexes in V, f(u,v)≤ c(u,v)
+		flow can not be larger than the capacity
+	-flow conservation:  for all v vertices in V (except for s & t)
+		flow income must be equal to the outgoing flow
+		Σᵥf(u,v)=0
+	-skew symmetry: for all u,v vertex in V, f(u,v) = -f(v,u)
+	-flow constraint: the flow leaving from s must be equal to the flow arriving at t
+		Σᵤf(s,u)=Σᵥf(v,t)
+	-the flow of a network is how is coming from the source or how much is going
+		into the sink.  should be the same number.
+	Cuts
+		max-flow, min-cut theorem?
+	Residual network
+		-residual network = original capacity - flow in graph ≥ 0
+		      c'(u,v)			c(u,v)				f(u,v)
+		- will always be greater than or equal to 0 because original capacity
+			will always be the same or greater than the flow
+		- we use the residual network to find the "augmenting path"
+			if we find an augmenting path, we haven't found the maximum flow of the network
+	Ford-Fulkerson algorithm (augmenting path algorithm)
+		-an augmented path is a path that we have sent flow down but still has
+			a residual network (=more flow is able to go down the path)
+			a path that has used all its capacity is said to be "saturated"
+		-maximum flow occurs when no path from s to t is unsaturated
+		algorithm
+			1 initialize the flow network to be 0 at the beginning
+			2  while there is a path from s to t int he residual network (G'),
+				find that augmenting path and augment G flow network
+	 	-uses BFS to find augmenting paths
+	 	-Running time of Edmonds-Karp: O(VE²)
+	 	-Running time of Dinic: O(V²E)
+	 		E > V so Dinic is faster
+	 	-MINIMUM CUT = MAX FLOW
+	 	APPLICATIONS of max flow
+	 		-communication networks has a set of requests to transmit messages between servers that
+	 			are connected by channels
+	 			What is the max rate at which info can be transferred between 2 specified servers
+	 			If there are costs, what is the least expensive way?
+		
