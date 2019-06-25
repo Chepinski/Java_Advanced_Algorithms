@@ -50,7 +50,7 @@ public class Edge {
 		return capacity;
 	}
 
-	public Vertex getOther(Vertex vertex) {
+	public Vertex getOther(Vertex vertex) {//get the vertex that's connected to current vertex
 		if (vertex == fromVertex)
 			return targetVertex;
 		else

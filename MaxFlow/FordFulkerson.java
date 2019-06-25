@@ -1,8 +1,8 @@
 package MaxFlow;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+//import java.util.List;
 import java.util.Queue;
 
 public class FordFulkerson {
@@ -13,18 +13,18 @@ public class FordFulkerson {
 	
 	public FordFulkerson(FlowNetwork flowNetwork, Vertex s, Vertex t) {
 		
-		while(hasAugmentingPath(flowNetwork, s, t)) {
+		while(hasAugmentingPath(flowNetwork, s, t)) {//while there is an augmenting path
 			double minValue = Double.POSITIVE_INFINITY;
 			
-			for(Vertex v=t;v!= s; v= edgeTo[v.getId()].getOther(v)) {//get the minimum
-				minValue = Math.min(minValue, edgeTo[v.getId()].getResidualCapacity(v));
+			for(Vertex v=t;v!= s; v= edgeTo[v.getId()].getOther(v)) {//v = vertex on augmenting path
+				minValue = Math.min(minValue, edgeTo[v.getId()].getResidualCapacity(v));//minValue of edges going to sink
 			}
 			
-			for(Vertex v = t; v!=s; v=edgeTo[v.getId()].getOther(v)) {
+			for(Vertex v = t; v!=s; v=edgeTo[v.getId()].getOther(v)) {//add flows into flow network along augmenting path
 				edgeTo[v.getId()].addResidualFlowTo(v, minValue);
 			}
 			
-			valueMaxFlow = valueMaxFlow + minValue;
+			valueMaxFlow = valueMaxFlow + minValue;//add the min flow to the min flows from other augmenting paths to obtain max flow
 		}
 	}
 	
@@ -37,28 +37,33 @@ public class FordFulkerson {
 	}
 
 	private boolean hasAugmentingPath(FlowNetwork flowNetwork, Vertex s, Vertex t) {
+		/**
+		 * this function will eventually return false because any augmenting paths
+		 * will be blocked by 0 capacity paths which in turn won't add the sink
+		 * to the visited queue
+		 */
 		edgeTo = new Edge[flowNetwork.getNumOfVertices()];
 		marked = new boolean[flowNetwork.getNumOfVertices()];
 		
 		Queue<Vertex> queue = new LinkedList<>();
-		queue.add(s);
-		marked[s.getId()] = true;
+		queue.add(s);//add start vertex to queue
+		marked[s.getId()] = true;//mark start vertex as visited
 		
-		while(!queue.isEmpty() && !marked[t.getId()]){
+		while(!queue.isEmpty() && !marked[t.getId()]){//loop while the there are still vertices in the queue and the sink hasn't been reached
 			Vertex v = queue.remove();
 			
-			for(Edge e : flowNetwork.getAdjacenciesList(v)) {
+			for(Edge e : flowNetwork.getAdjacenciesList(v)) {//traverse each edge from vertex
 				Vertex w = e.getOther(v);
 				
-				if(e.getResidualCapacity(w) > 0) {
-					if(!marked[w.getId()]) {
-						edgeTo[w.getId()] = e;
-						marked[w.getId()]=true;
-						queue.add(w);
+				if(e.getResidualCapacity(w) > 0) {//if there is still capacity left
+					if(!marked[w.getId()]) {//and the vertex is not yet marked as visited
+						edgeTo[w.getId()] = e;//the edge to this vertex is e
+						marked[w.getId()]=true;//mark the edge as visited
+						queue.add(w);//add the vertex to the queue
 					}
 				}
 			}
 		}
-		return marked[t.getId()];
+		return marked[t.getId()];//if the sink i
 	}
 }
