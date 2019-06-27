@@ -167,4 +167,16 @@ Maximum Flow
 	 			are connected by channels
 	 			What is the max rate at which info can be transferred between 2 specified servers
 	 			If there are costs, what is the least expensive way?
+	Bipartite Matching
+		-in graph theory, a graph whose vertices can be divided into 2 disjoint sets
+		U and V such that ever edge connects a vertex in U to one in V
+		(no edge within sets)
+		-example: a set of people and a set of jobs to be done
+		a person can only do so many jobs.  can model this situation using bipartite graph
+		it assigns jobs such that as many people get jobs as possible
+		-maximum matching: contains as many edges as possible
+		-all one set connected with source
+		-all other set connected with sink
+		-find maximum flow (maximum matching)
+		
 		
