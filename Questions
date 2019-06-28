@@ -178,5 +178,20 @@ Maximum Flow
 		-all one set connected with source
 		-all other set connected with sink
 		-find maximum flow (maximum matching)
-		
-		
+
+Traveling Salesman
+	-Given a list of cities and the distances between each pair of cities,
+	what is the shortest possible route that visits each city exactly once
+	and returns to the original city.
+	-NP-Hard problem (du hast schon ein Buch darüber gelesen)
+		we will need to find an approximate solution because
+		an exact solution will be too difficult.
+	-N cities = N! permutations (brute force of no use)
+	-Hamiltonian path: a path in a undirected or directed graph that visits
+	each vertex exactly once
+	-Hamiltonian Cycle: hamiltonian path that is a cycle
+	-LOOKING FOR SHORTEST PATH HAMILTONIAN CYCLE
+	(sum of edges is minimum)
+	-Methods for solving TSP:
+		random, tour, greedy search, 2-opt-solution, *simulated annealing
+	
