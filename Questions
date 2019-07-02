@@ -193,5 +193,48 @@ Traveling Salesman
 	-LOOKING FOR SHORTEST PATH HAMILTONIAN CYCLE
 	(sum of edges is minimum)
 	-Methods for solving TSP:
-		random, tour, greedy search, 2-opt-solution, *simulated annealing
+		random, tour, greedy search, 2-opt-solution, *simulated annealing*
+Tabu Search
+	-Metaheuristic search method
+		-rely on tradeoff of accuracy for speed
+			(brute search precise but slow)
+			(same with hill-climbing [greedy])
+	-bad moves accepted if no improving move available (to avoid
+		pitfalls of hill-climbing/false positive/local optimums)
+	-tabu or prohibitions are introduced to avoid revisiting solutions
+	-need "tabu list" data structure to store prohibited points
+		-the points on the "tabu list" will be the local maximums
+	-"tabu tenure" how many iterations that a location on the tabu list
+		can be attempted to be visited before it can be visited again
+		e.g. if the tabu tenure of a location in the tabu list is 5,
+		5 iterations must be passed before the tabu location can be
+		visited
+	-"aspiration criteria"? ensures that we don't miss global max or min
+Euler Cycle
+	-chinese postman problem= go through all edges exactly once
+	-the goal is to find a cycle in a graph that contains each edge in the
+	graph only once
+	-"Euler's theorem" -> a connected undirected graph is a Euler graph if
+	and only if every node in the graph is of an even degree.  Meaning that
+	the number of edges from the given node is even.
+	-Methods for finding Euler Cycles:
+		-Fleury algorithm
+			-not efficient
+			1. pick any vertex to start
+			2. pick an edge to traverse (can't traverse again)
+			3. travel edge
+			4 repeat until all edges are traversed
+			*never cross a bridge of the reduced graph unless there is
+			no choice
+		-Hierholzer (more efficient linear time complexity)
+			-find an Eulerian circuit in a connected graph
+			in which every vertex has an even amount of edges
+			-2 main stacks
+			1. initially all edges are unvisited
+			2. choose any vertex and push it onto stack
+			3. while stack is nonempty, look at the top vertex on the stack.
+			If the top vertex has an unmarked incident edge, put that
+			vertex onto the stack and mark the edge (u,v).  If the vertex
+			has no unmarked incident edge, pop it off the stack and print it.
+			Algorithm terminates when the stack is empty
 	

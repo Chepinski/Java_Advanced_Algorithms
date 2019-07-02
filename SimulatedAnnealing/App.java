@@ -8,6 +8,7 @@ public class App {
 			City city = new City();
 			Repository.addCity(city);
 		}
+		
 		SimulatedAnnealing annealing = new SimulatedAnnealing();
 		annealing.simulation();
 		

@@ -1,4 +1,4 @@
-package SimulatedAnnealing;
+package SimulatedAnnealing;//http://katrinaeg.com/simulated-annealing.html
 
 public class SimulatedAnnealing {
 	
@@ -43,10 +43,11 @@ public class SimulatedAnnealing {
 	}
 	
 	private double acceptanceProbability(double currentEnergy, double neighborEnergy, double temperature) {
-		//we accept these bad moves to get global optimum and avoid local optimum
+		//we always return positive if the new tour is shorter than the old tour
 		if(neighborEnergy < currentEnergy)
 			return 1;
-		//System.out.println(temperature);
+		//we DON'T always return positive (1) if the old tour is shorter than the new tour
+		//cool! ab und zu bekommen wir die Nummer 1 (sogar wenn der Nachbar nicht die beste Lösung ist)
 		return Math.exp((currentEnergy-neighborEnergy)/temperature);
 	}
 

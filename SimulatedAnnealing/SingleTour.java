@@ -60,7 +60,6 @@ public class SingleTour {
 	}
 
 	public void setCity(int cityIndex, City city) {
-		// TODO Auto-generated method stub
 		this.tour.set(cityIndex, city);
 		this.distance = 0; // reinitialize distance to 0
 
@@ -76,7 +75,6 @@ public class SingleTour {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		String s = "";
 
 		for (int i = 0; i < getTourSize(); ++i)
